@@ -1,0 +1,14 @@
+ALTER TABLE basketball.championship
+ADD CONSTRAINT `check_year` CHECK (((`year` >= 1946) and (`year` <= 2100)));
+
+
+ALTER TABLE basketball.team
+ADD CONSTRAINT `check_rank` CHECK (((`rank` >= 1) and (`rank` <= 30)));
+
+
+ALTER TABLE basketball.player
+ADD CONSTRAINT `check_player_no` CHECK (((`player_no` >= 0) and (`player_no` <= 99)));
+
+
+ALTER TABLE basketball.head_coach
+ADD CONSTRAINT `check_sex` CHECK (((`sex` = _utf8mb4'Woman') or (`sex` = _utf8mb4'Man')));
