@@ -1,0 +1,24 @@
+ALTER TABLE basketball.championship
+ADD PRIMARY KEY (`team_name`,`year`),
+ADD UNIQUE KEY `team_name_year_UNIQUE` (`team_name`,`year`) /*!80000 INVISIBLE */,
+ADD UNIQUE KEY `team_id_UNIQUE` (`team_id`) /*!80000 INVISIBLE */;
+
+
+ALTER TABLE basketball.team
+ADD PRIMARY KEY (`team_id`),
+ADD UNIQUE KEY `team_id_UNIQUE` (`team_id`) /*!80000 INVISIBLE */,
+ADD KEY `player_id_head_coach_id_UNIQUE` (`head_coach_id`,`player_id`) /*!80000 INVISIBLE */,
+ADD KEY `FK_teamname` (`team_name`) /*!80000 INVISIBLE */,
+ADD KEY `FK_playerid` (`player_id`);
+
+
+ALTER TABLE basketball.player
+ADD PRIMARY KEY (`player_id`),
+ADD UNIQUE KEY `player_id_UNIQUE` (`player_id`) /*!80000 INVISIBLE */,
+ADD UNIQUE KEY `team_id_UNIQUE` (`team_id`);
+
+
+ALTER TABLE basketball.head_coach
+ADD PRIMARY KEY (`head_coach_id`),
+ADD UNIQUE KEY `head_coach_id_UNIQUE` (`head_coach_id`) /*!80000 INVISIBLE */,
+ADD UNIQUE KEY `team_id_UNIQUE` (`team_id`);
