@@ -1,0 +1,16 @@
+ALTER TABLE basketball.championship
+ADD CONSTRAINT `FK_teamidentity` FOREIGN KEY (`team_id`) REFERENCES `team` (`team_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+
+ALTER TABLE basketball.team
+ADD CONSTRAINT `FK_headcoachid` FOREIGN KEY (`head_coach_id`) REFERENCES `head_coach` (`head_coach_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+ADD CONSTRAINT `FK_name` FOREIGN KEY (`team_name`) REFERENCES `championship` (`team_name`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+ADD CONSTRAINT `FK_playeridentity` FOREIGN KEY (`player_id`) REFERENCES `player` (`player_id`);
+
+
+ALTER TABLE basketball.player
+ADD CONSTRAINT `FK_team_id` FOREIGN KEY (`team_id`) REFERENCES `team` (`team_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+
+ALTER TABLE basketball.head_coach
+ADD CONSTRAINT `FK_teamid` FOREIGN KEY (`team_id`) REFERENCES `team` (`team_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
