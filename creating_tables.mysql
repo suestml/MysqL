@@ -1,0 +1,41 @@
+CREATE TABLE basketball.`championship` (
+  `team_name` varchar(45) NOT NULL,
+  `year` year NOT NULL,
+  `team_id` varchar(45) NOT NULL
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE basketball.`team` (
+  `team_id` varchar(45) NOT NULL,
+  `team_name` varchar(45) NOT NULL,
+  `rank` tinyint(2) NOT NULL,
+  `head_coach_id` varchar(45) NOT NULL,
+  `player_id` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE basketball.`player` (
+  `player_id` varchar(45) NOT NULL,
+  `name` varchar(45) NOT NULL,
+  `surname` varchar(45) NOT NULL,
+  `championship_ring` tinyint(2) NOT NULL,
+  `player_no` tinyint(2) NOT NULL,
+  `point_guard` char(2) NOT NULL,
+  `shooting_guard` char(2) NOT NULL,
+  `small_forward` char(2) NOT NULL,
+  `power_forward` char(2) NOT NULL,
+  `center` char(2) NOT NULL,
+  `assists` tinyint(2) NOT NULL,
+  `steals` tinyint(2) NOT NULL,
+  `blocks` tinyint(2) NOT NULL,
+  `turnovers` tinyint(2) NOT NULL,
+  `team_id` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE basketball.`head_coach` (
+  `head_coach_id` varchar(45) NOT NULL,
+  `first_name` varchar(45) NOT NULL,
+  `middle_name` varchar(45) NOT NULL,
+  `last_name` varchar(45) NOT NULL,
+  `assistants` int(2) NOT NULL,
+  `sex` char(5) NOT NULL,
+  `team_id` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
